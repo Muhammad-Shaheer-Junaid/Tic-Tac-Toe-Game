@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #34495e;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #3498db;
+}
+
+h4 {
+    margin-bottom: 1rem;
+    color: #e74c3c;
+}
+
+.selection-btns,
+.action-btns {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 0.4rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.cell {
+    width: 6rem;
+    height: 6rem;
+    background-color: #ecf0f1;
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid #000; */
+    transition: background 0.3s ease;
+}
+
+.cell:hover {
+    background: #bdc3c7;
+    transform: scale(1.05);
+}
+
+.cell.taken {
+    pointer-events: none;
+    color: #2c3e50;
+}
+
+.cell.winner {
+    background-color: #2ecc71;
+    color: #fff;
+    animation: pulse 1s infinite;
+}
+
+button {
+    margin: 10px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translate(-2px);
+}
+
+#status {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+    text-align: center;
+    min-height: 2em;
+}
+
+/* Keyframe for Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Media Queries for shorter screen */
+@media (max-width: 400px) {
+    .container {
+        height: 95vh;
+
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        gap: 5px;
+    }
+
+    #status {
+        font-size: 1.25rem;
+        margin: 1rem 0;
+        text-align: center;
+        min-height: 2em;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+}
